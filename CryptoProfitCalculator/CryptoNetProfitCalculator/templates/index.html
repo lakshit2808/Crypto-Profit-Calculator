@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Net Profit Calculator: Lakshit</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+<body>
+
+
+
+  <section>
+    <div class="imgBox">
+      <img src="{% static 'images/crypto.jpg'%}" alt="crypto">
+    </div>
+    <div class="contentBox">
+      <div class="formBox">
+      <h2 >Crypto Net Profit Calculator(INR)</h2>
+      <form action="result">
+        <div class="inputBox">
+          <span>Buy Price</span>
+          <input type="number" name="buyprice" step="0.000000000001" required>
+        </div>
+        <div class="inputBox">
+          <span>Sell Price</span>
+          <input type="number" name="sellprice" step="0.000000000001" required>
+        </div>
+        <div class="inputBox">
+          <span>Taker Fee</span>
+          <input type="number" name="takerfee" step="0.0001" required>
+        </div>
+        <div class="inputBox">
+          <span>Maker Fee</span>
+          <input type="number" name="makerfee" step="0.0001" required>
+        </div>
+        <div class="inputBox" >
+          <span>Token Used</span>
+          <div class="radioBox">
+          <label class = 'radioLabel' for="token1">USDT</label>
+          <input type="radio" id="token1" name="token" value="USDT">
+          <label class = 'radioLabel' for="token2">BNB</label>
+          <input type="radio" id="token2" name="token" value="BNB">
+          <label class = 'radioLabel' for="token3">BTC</label>
+          <input type="radio" id="token3" name="token" value="BTC">
+          <label class = 'radioLabel' for="token4">ETH</label>
+          <input type="radio" id="token4" name="token" value="ETH">
+          </div>
+        </div>
+        <div class="inputBox">
+          <span>Amount Invested</span>
+          <input type="range" id="inv" name="investment" min="0" max="100000">
+          <div class="amountInvested">
+          <span>₹</span>
+          <span id="amount">100000</span>
+          </div>
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="Calculate">
+        </div>
+      </form>
+    </div>
+    </div>
+  </section>
+
+
+
+  <script>
+    const slideValue = document.getElementById("amount");
+    const inputSlider = document.getElementById("inv");
+    inputSlider.oninput = (()=>{
+      let value = inputSlider.value;
+      slideValue.textContent = value;
+      slideValue.style.left = (value/2) + "%";
+      slideValue.classList.add("show");
+    });
+    inputSlider.onblur = (()=>{
+      slideValue.classList.remove("show");
+    });
+  </script>
+
+
+
+
+
+</body>
+</html>

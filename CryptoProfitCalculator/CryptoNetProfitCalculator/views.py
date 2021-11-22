@@ -20,6 +20,12 @@ def Result(request):
 
     values = list(ProfitCalculator.NetProfitCalculator(token,buyPrice,sellPrice,investment,takerFee,makerFee))
     keys = ['Net Profit', 'Total Fee', 'Total Investment']
-
-    graph = chart.get_plot(values,keys)
-    return render(request, 'result.html', {'netprofit': netprofit, 'graph': graph})
+    if values[0] < 0:
+        values[0] = abs(values[0])
+        keys[0] = 'Total Loss'
+        graph = chart.get_plot(values,keys, 'blue')
+        netvalue = 'Total Loss:'
+    else:
+        graph = chart.get_plot(values,keys)
+        netvalue = 'Total Profit:'
+    return render(request, 'result.html', {'netprofit': netprofit, 'graph': graph, "netvalue": netvalue})

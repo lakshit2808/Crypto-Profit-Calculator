@@ -12,12 +12,12 @@ def get_graph():
     buffer.close()
     return graph
 
-def get_plot(values, keys):
+def get_plot(values, keys, color = 'green'):
     ax = plt.axes()
     plt.switch_backend('AGG')
     plt.figure(figsize=(10, 5))
     ax.set_facecolor("yellow")
-    plt.pie(values, labels=keys,radius=1.5, colors=[ 'green', 'red','orange'], autopct='%0.2f%%')
+    plt.pie(values, labels=keys,radius=1.5, colors=[ color, 'red','orange'], autopct='%0.2f%%', wedgeprops={'linewidth': 3.0, 'edgecolor': 'white'})
   
     graph = get_graph()
     return graph

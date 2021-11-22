@@ -7,6 +7,7 @@
     <title>Crypto Net Profit Calculator: Lakshit</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'resultStyle.css'%}">
+
 </head>
 <body>
 
@@ -14,13 +15,14 @@
 
     <div class="result">
         <div class="text">
-            <span>Net Profit: {{netprofit}}</span>
+            <span>{{netvalue}} {{netprofit}}</span>
         </div>
         {% if graph %}
             <img id='chart' src="data:image/png;base64, {{graph|safe}}" width="50%" height = 50%>
         {% endif %}
     </div>
     {% endblock %}
+
 
 </body>
 </html>

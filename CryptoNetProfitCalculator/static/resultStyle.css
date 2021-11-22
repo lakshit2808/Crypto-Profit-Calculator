@@ -1,0 +1,50 @@
+body {
+
+
+        background: url(images/cryptocurrency.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+    }
+
+#chart{
+    border-radius: 500px;
+    inline-size: 700px;
+}
+
+.result{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+span{
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.text{
+    background: radial-gradient(circle, rgba(36,0,5,1) 0%, rgba(10,9,121,1) 31%, rgba(125,255,0,1) 100%);
+    padding: 20px;
+    width: 50%;
+    border-radius: 25px;
+    margin: auto;
+    border: 3px solid rgb(255, 255, 255);
+    margin-bottom: 40px;
+}
+
+
+
+@media screen and (max-width: 720px){
+    #chart{
+        inline-size: 355px;
+    }
+
+}
